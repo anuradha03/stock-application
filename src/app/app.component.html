@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="edit-box">
+    <div class="overlay-text">Example: Companies like NASDAQ:INTC</div>
+    <textarea placeholder="Describe your strategy here" (input)="onInput($event); enableButton()"></textarea>
+
+    <div [style.color]="counterColor">Characters left: {{ charactersLeft }}</div>
+  </div>
+  <button (click)="evaluate()" [disabled]="!buttonEnabled || !textareaContent.trim()">Evaluate</button>
+  <div class="securities-list">
+    <div class="securities-title">SECURITIES LIST</div>
+    <div class="displayTable">
+      <app-stock-table *ngIf="showTable"></app-stock-table>
+    </div>
+  </div>
+</div>

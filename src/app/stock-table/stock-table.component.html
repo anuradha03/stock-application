@@ -1,0 +1,34 @@
+<div class="stock-table-wrapper">
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Sector</th>
+        <th>Mkt Cap</th>
+        <th>Score</th>
+        <th>Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of tableData; let i = index">
+        <tr>
+          <td (click)="showCompanyDetails(row)">{{ row.symbol }}</td>
+          <td (click)="showCompanyDetails(row)">{{ row.name }}</td>
+          <td (click)="showCompanyDetails(row)">{{ row.sector }}</td>
+          <td (click)="showCompanyDetails(row)">{{ row.mktCap }}</td>
+          <td (click)="showCompanyDetails(row)">{{ row.score }}</td>
+          <td (click)="showCompanyDetails(row)">{{ row.conf }}</td>
+          <td>
+            <div class="arrow-icons">
+              <i class="fa fa-arrow-up arrow" (click)="moveUp(i)" [ngClass]="{ 'disabled': i === 0 }"></i>
+              <i class="fa fa-arrow-down arrow" (click)="moveDown(i)" [ngClass]="{ 'disabled': i === tableData.length - 1 }"></i>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<app-popup *ngIf="showPopup" [selectedCompany]="selectedCompany" (closePopup)="closePopup()"></app-popup>

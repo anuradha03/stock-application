@@ -1,0 +1,13 @@
+<div class="popup-background" *ngIf="selectedCompany"></div>
+<div class="popup-box" *ngIf="selectedCompany">
+    <div class="popup-content">
+        <span class="close-button" (click)="onClosePopup()">×</span>
+        <div class="company-details">
+            <p><strong>Name:</strong> {{ selectedCompany?.name }}</p>
+            <p><strong>ID:</strong> {{ selectedCompany?.ID }}</p>
+            <p><strong>Market Cap:</strong> {{ selectedCompany?.mktCap }}</p>
+            <p><strong>Company HQ:</strong> {{ selectedCompany?.HQ }}</p>
+            <p><strong>Description:</strong> {{ selectedCompany?.description }}</p>
+        </div>
+    </div>
+</div>
